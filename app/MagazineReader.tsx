@@ -55,7 +55,7 @@ export default function MagazineReader({ pages, projectNumber, label }: Magazine
   return (
     <>
       <div className="magazine-reader">
-        <div className="magazine-page-strip" aria-label={`${label}: страницы`}>
+        <div className="magazine-page-strip" role="group" aria-label={`${label}: страницы`}>
           {pages.map((page, index) => (
             <button className="magazine-page-trigger" type="button" onClick={() => setOpenPageIndex(index)} aria-label={`Открыть страницу ${index + 1}`} key={page.src}>
               <span className="magazine-page-paper" style={{ aspectRatio: page.ratio }}>
@@ -84,7 +84,7 @@ export default function MagazineReader({ pages, projectNumber, label }: Magazine
           <div className="magazine-reader-dialog" role="dialog" aria-modal="true" aria-label={`${label}, страница ${(openPageIndex ?? 0) + 1}`}>
             <div className="magazine-reader-topline">
               <span>{projectNumber} / {(openPageIndex ?? 0) + 1} · {label}</span>
-              <button className="magazine-reader-close" type="button" onMouseDown={closeReader} onClick={closeReader} ref={closeButtonRef} aria-label="Закрыть страницу">×</button>
+              <button className="magazine-reader-close" type="button" onClick={closeReader} ref={closeButtonRef} aria-label="Закрыть страницу">×</button>
             </div>
             <div className="magazine-reader-stage">
               <div className="magazine-reader-page-frame" style={{ aspectRatio: currentPage.ratio }}>

@@ -4,9 +4,9 @@
   --ink: #171717;
   --paper: #f8f8f6;
   --panel: #eeeee9;
-  --muted: #777773;
+  --muted: #64645f;
   --line: #d7d7d1;
-  --accent: #ff5b56;
+  --accent: #b93a35;
   --font-body: var(--font-geist-sans), "Helvetica Neue", sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
 }
@@ -48,6 +48,22 @@ a {
 a:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
+}
+
+.skip-link {
+  background: var(--ink);
+  color: var(--paper);
+  left: 16px;
+  padding: 10px 14px;
+  position: fixed;
+  top: 10px;
+  transform: translateY(-160%);
+  transition: transform 160ms ease;
+  z-index: 50;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
 }
 
 ::selection {
@@ -115,9 +131,9 @@ a:focus-visible {
 
 .intro {
   display: block;
-  min-height: min(520px, 58svh);
-  padding-bottom: 68px;
-  padding-top: 68px;
+  min-height: min(470px, 52svh);
+  padding-bottom: 52px;
+  padding-top: 58px;
 }
 
 .intro-copy {
@@ -130,10 +146,10 @@ a:focus-visible {
 }
 
 .intro h1 {
-  font-size: clamp(70px, 10vw, 160px);
+  font-size: clamp(68px, 9vw, 140px);
   font-weight: 620;
-  letter-spacing: -0.13em;
-  line-height: 0.8;
+  letter-spacing: -0.075em;
+  line-height: 0.88;
   margin: 0;
   position: relative;
   width: max-content;
@@ -141,9 +157,9 @@ a:focus-visible {
 
 .intro h1::after {
   background: var(--accent);
-  bottom: -22px;
+  bottom: -18px;
   content: "";
-  height: 8px;
+  height: 5px;
   left: 5px;
   position: absolute;
   transform: rotate(-2deg);
@@ -151,11 +167,11 @@ a:focus-visible {
 }
 
 .intro-text {
-  font-size: clamp(18px, 1.65vw, 24px);
-  letter-spacing: -0.045em;
-  line-height: 1.27;
-  margin: 44px 0 22px;
-  max-width: 760px;
+  font-size: clamp(18px, 1.45vw, 22px);
+  letter-spacing: -0.02em;
+  line-height: 1.42;
+  margin: 40px 0 22px;
+  max-width: 54ch;
   text-wrap: pretty;
 }
 
@@ -204,7 +220,7 @@ a:focus-visible {
   font-family: var(--font-body);
   font-size: clamp(28px, 3.1vw, 48px);
   font-weight: 560;
-  letter-spacing: -0.09em;
+  letter-spacing: -0.05em;
   line-height: 1;
   margin: 0;
   text-transform: none;
@@ -268,10 +284,10 @@ a:focus-visible {
 }
 
 .project-index strong {
-  font-size: clamp(13px, 1.08vw, 16px);
+  font-size: clamp(13px, 1.02vw, 15px);
   font-weight: 560;
-  letter-spacing: -0.065em;
-  line-height: 1.05;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
   text-wrap: balance;
 }
 
@@ -341,8 +357,8 @@ a:focus-visible {
   font-family: var(--font-body);
   font-size: clamp(26px, 3vw, 44px);
   font-weight: 560;
-  letter-spacing: -0.09em;
-  line-height: 1;
+  letter-spacing: -0.05em;
+  line-height: 1.06;
   margin: 0;
   text-transform: none;
   text-wrap: pretty;
@@ -693,8 +709,8 @@ a:focus-visible {
 .project-copy h4 {
   font-size: clamp(25px, 2.55vw, 38px);
   font-weight: 560;
-  letter-spacing: -0.09em;
-  line-height: 1.02;
+  letter-spacing: -0.045em;
+  line-height: 1.07;
   margin: 0 0 10px;
   max-width: 24ch;
   text-wrap: balance;
@@ -702,8 +718,8 @@ a:focus-visible {
 
 .project-copy > p:last-child {
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.38;
+  font-size: 15px;
+  line-height: 1.5;
   margin: 0;
   max-width: 60ch;
   text-wrap: pretty;
@@ -740,8 +756,8 @@ a:focus-visible {
 .project-link-preview h4 {
   font-size: clamp(25px, 2.55vw, 38px);
   font-weight: 560;
-  letter-spacing: -0.09em;
-  line-height: 1.02;
+  letter-spacing: -0.045em;
+  line-height: 1.07;
   margin: 16px 0 10px;
   max-width: 24ch;
   text-wrap: balance;
@@ -749,8 +765,8 @@ a:focus-visible {
 
 .project-link-preview > p {
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.38;
+  font-size: 15px;
+  line-height: 1.5;
   margin: 0;
   max-width: 60ch;
   text-wrap: pretty;
@@ -810,6 +826,7 @@ a:focus-visible {
 }
 
 .project-group[data-group="05"] {
+  --accent: #ff5b56;
   background: #1d1d1d;
   border-left-color: var(--accent);
   color: var(--paper);
@@ -961,7 +978,7 @@ a:focus-visible {
 }
 
 .contact-after-intro {
-  padding-bottom: 58px;
+  padding-bottom: 46px;
   padding-top: 0;
 }
 
@@ -1084,7 +1101,7 @@ a:focus-visible {
 
   .intro-text {
     font-size: 19px;
-    margin-top: 55px;
+    margin-top: 48px;
   }
 
   .section-heading,

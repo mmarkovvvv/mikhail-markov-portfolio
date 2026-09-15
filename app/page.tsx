@@ -387,7 +387,9 @@ const projectGroups: ProjectGroup[] = [
 
 export default function Home() {
   return (
-    <main>
+    <>
+      <a className="skip-link" href="#main-content">Перейти к содержанию</a>
+      <main id="main-content" tabIndex={-1}>
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="На главную">Михаил Марков</a>
         <nav className="main-nav" aria-label="Основная навигация">
@@ -513,6 +515,7 @@ export default function Home() {
         <span>Михаил Марков</span>
         <a href="#top">Наверх ↑</a>
       </footer>
-    </main>
+      </main>
+    </>
   );
 }
