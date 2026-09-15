@@ -38,6 +38,9 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /Каталог «ПромМаш Тест»/);
   assert.match(html, /Редакционное сопровождение мероприятий/);
   assert.match(html, /ПромМаш Тест на выставке/);
+  assert.match(html, /ПМЭФ/);
+  assert.match(html, /«Нефтегаз»/);
+  assert.match(html, /редакционный контроль реализации застройки/);
   assert.match(html, /mailto:mmarkovvvv@gmail\.com/);
   assert.match(html, /class="contact-icon-link"/);
   assert.match(html, /aria-label="Medium"/);
