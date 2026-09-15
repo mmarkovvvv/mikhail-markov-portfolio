@@ -888,6 +888,7 @@ a:focus-visible {
 
 .video-gallery-item:last-child {
   margin-bottom: 0;
+  z-index: 4;
 }
 
 .video-gallery-item .project-number {
