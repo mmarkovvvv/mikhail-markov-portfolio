@@ -274,6 +274,11 @@ const projectGroups: ProjectGroup[] = [
             alt: "Подготовка студии для видеосъёмки",
             ratio: 1252 / 1760,
           },
+          {
+            src: "/media/video-production-interview-studio.png",
+            alt: "Съёмка интервью в офисном пространстве",
+            ratio: 1080 / 1920,
+          },
         ],
       },
     ],

@@ -73,6 +73,7 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
     "video-production-interview-on-site.png",
     "video-production-factory-shoot.png",
     "video-production-studio-setup.png",
+    "video-production-interview-studio.png",
     "sercons-corporate-monopoly.png",
     "prommash-test-corporate-catalog.png",
     "event-editorial-prommash-test-meeting-zone.png",
@@ -129,6 +130,7 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
   assert.match(page, /kind="setka"/);
   assert.match(page, /kind="medium"/);
   assert.match(page, /Сценарии, storyboard, интервью, съёмки, постпродакшн/);
+  assert.match(page, /video-production-interview-studio\.png/);
   assert.match(page, /youtube\.com\/watch\?v=TaJ63sbGwFE&t=52s/);
   assert.match(page, /youtube\.com\/watch\?v=coh1qFLm2vc&t=133s/);
   assert.match(page, /stop-writing-polite-replies-start-fixing-problems-9d896f9f9620/);
