@@ -84,7 +84,7 @@ export default function MagazineReader({ pages, projectNumber, label }: Magazine
           <div className="magazine-reader-dialog" role="dialog" aria-modal="true" aria-label={`${label}, страница ${(openPageIndex ?? 0) + 1}`}>
             <div className="magazine-reader-topline">
               <span>{projectNumber} / {(openPageIndex ?? 0) + 1} · {label}</span>
-              <button className="magazine-reader-close" type="button" onClick={closeReader} ref={closeButtonRef} aria-label="Закрыть страницу">×</button>
+              <button className="magazine-reader-close" type="button" onMouseDown={closeReader} onClick={closeReader} ref={closeButtonRef} aria-label="Закрыть страницу">×</button>
             </div>
             <div className="magazine-reader-stage">
               <div className="magazine-reader-page-frame" style={{ aspectRatio: currentPage.ratio }}>
