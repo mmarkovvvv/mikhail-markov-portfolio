@@ -473,10 +473,11 @@ a:focus-visible {
 }
 
 .project-visual-article-cover .portfolio-image {
-  object-fit: cover;
+  object-fit: contain !important;
 }
 
-.project-group[data-group="02"] .project-visual .portfolio-image {
+.project-group[data-group="01"] .project-visual .portfolio-image,
+.project-group[data-group="07"] .project-visual .portfolio-image {
   object-fit: contain !important;
 }
 
