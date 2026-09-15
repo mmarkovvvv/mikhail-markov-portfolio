@@ -96,7 +96,7 @@ export default function MagazineReader({ pages, projectNumber, label }: Magazine
               <button className="magazine-reader-close" type="button" onClick={closeReader} ref={closeButtonRef} aria-label="Закрыть журнал">×</button>
             </div>
             <div className="magazine-reader-stage">
-              <div className="magazine-reader-page-frame" key={currentPage.src}>
+              <div className="magazine-reader-page-frame" key={currentPage.src} style={{ aspectRatio: currentPage.ratio }}>
                 <Image
                   src={currentPage.src}
                   alt={currentPage.alt}
