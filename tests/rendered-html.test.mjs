@@ -78,6 +78,7 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
     "prommash-test-corporate-catalog.png",
     "event-editorial-prommash-test-meeting-zone.png",
     "event-editorial-prommash-test-exhibition-booth.png",
+    "event-editorial-exhibition-build-out.png",
     "yubiley-neftegaz-interview-nadein-page-68.png",
     "yubiley-neftegaz-interview-nadein-page-69.png",
     "yubiley-neftegaz-interview-nadein-page-70.png",
@@ -113,6 +114,7 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
   assert.match(page, /ПромМаш Тест на выставке/);
   assert.match(page, /event-editorial-prommash-test-meeting-zone\.png/);
   assert.match(page, /event-editorial-prommash-test-exhibition-booth\.png/);
+  assert.match(page, /event-editorial-exhibition-build-out\.png/);
   assert.match(page, /MagazineReader/);
   assert.match(page, /project-wide/);
   assert.match(page, /www\.kommersant\.ru\/doc\/7325577/);

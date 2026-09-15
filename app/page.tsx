@@ -367,6 +367,11 @@ const projectGroups: ProjectGroup[] = [
             alt: "Выставочный стенд «ПромМаш Тест»",
             ratio: 1086 / 1448,
           },
+          {
+            src: "/media/event-editorial-exhibition-build-out.png",
+            alt: "Монтаж выставочного стенда",
+            ratio: 1445 / 1089,
+          },
         ],
       },
     ],
