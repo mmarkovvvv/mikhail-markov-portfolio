@@ -37,6 +37,8 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /С нуля собрал и возглавил редакцию из 9 человек/);
   assert.match(html, /Работа с отзывами: разбор ошибок, коммуникация с клиентами и ToV/);
   assert.match(html, /Каталог «ПромМаш Тест»/);
+  assert.match(html, /Редакционное сопровождение мероприятий/);
+  assert.match(html, /ПромМаш Тест на выставке/);
   assert.match(html, /mailto:mmarkovvvv@gmail\.com/);
   assert.match(html, /class="contact-icon-link"/);
   assert.match(html, /aria-label="Medium"/);
@@ -71,6 +73,8 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
     "video-production-studio-setup.png",
     "sercons-corporate-monopoly.png",
     "prommash-test-corporate-catalog.png",
+    "event-editorial-prommash-test-meeting-zone.png",
+    "event-editorial-prommash-test-exhibition-booth.png",
     "yubiley-neftegaz-interview-nadein-page-68.png",
     "yubiley-neftegaz-interview-nadein-page-69.png",
     "yubiley-neftegaz-interview-nadein-page-70.png",
@@ -101,6 +105,10 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
   assert.match(page, /yubiley-neftegaz-interview-nadein-page-71\.png/);
   assert.match(page, /yubiley-neftegaz-interview-nadein-page-72\.png/);
   assert.match(page, /Корпоративная «Монополия»/);
+  assert.match(page, /Редакционное сопровождение мероприятий/);
+  assert.match(page, /ПромМаш Тест на выставке/);
+  assert.match(page, /event-editorial-prommash-test-meeting-zone\.png/);
+  assert.match(page, /event-editorial-prommash-test-exhibition-booth\.png/);
   assert.match(page, /MagazineReader/);
   assert.match(page, /project-wide/);
   assert.match(page, /www\.kommersant\.ru\/doc\/7325577/);
@@ -127,7 +135,7 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
   assert.doesNotMatch(styles, /\.profile-photo/);
   assert.match(styles, /\.portfolio-image[\s\S]*object-fit: contain/);
   assert.match(styles, /\.project-index/);
-  assert.match(styles, /grid-template-columns: repeat\(7, minmax\(0, 1fr\)\)/);
+  assert.match(styles, /grid-template-columns: repeat\(4, minmax\(0, 1fr\)\)/);
   assert.match(styles, /text-wrap: pretty/);
   assert.match(page, /MagazineReader/);
   assert.match(styles, /\.magazine-page-strip/);

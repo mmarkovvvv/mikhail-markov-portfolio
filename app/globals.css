@@ -230,7 +230,7 @@ a:focus-visible {
 
 .project-index {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: 24px 0 40px;
 }
 

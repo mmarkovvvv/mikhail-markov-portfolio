@@ -342,6 +342,30 @@ const projectGroups: ProjectGroup[] = [
       },
     ],
   },
+  {
+    number: "08",
+    title: "Редакционное сопровождение мероприятий",
+    projects: [
+      {
+        number: "01",
+        category: "Редакционное сопровождение",
+        title: "ПромМаш Тест на выставке",
+        text: "Разработал коммуникацию для выставки: слоганы и теглайны, тексты стенда и переговорной зоны, навигацию и ключевые сообщения для посетителей.",
+        gallery: [
+          {
+            src: "/media/event-editorial-prommash-test-meeting-zone.png",
+            alt: "Зона переговоров «ПромМаш Тест» на выставке",
+            ratio: 1085 / 1449,
+          },
+          {
+            src: "/media/event-editorial-prommash-test-exhibition-booth.png",
+            alt: "Выставочный стенд «ПромМаш Тест»",
+            ratio: 1086 / 1448,
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export default function Home() {
