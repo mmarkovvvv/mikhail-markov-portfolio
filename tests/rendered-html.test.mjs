@@ -41,7 +41,8 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /aria-label="Medium"/);
   assert.doesNotMatch(html, />Medium\s*[↗]?<\/a>/);
   assert.doesNotMatch(html, /profile-photo|mikhail-markov-portrait/);
-  assert.match(html, /Открыть журнал/);
+  assert.match(html, /Открыть страницу 1/);
+  assert.match(html, /Открыть страницу 5/);
   assert.doesNotMatch(html, /Здесь/);
   assert.doesNotMatch(html, /Your site is taking shape|react-loading-skeleton|codex-preview/i);
 });
@@ -67,6 +68,7 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
     "video-production-interview-on-site.png",
     "video-production-factory-shoot.png",
     "video-production-studio-setup.png",
+    "sercons-corporate-monopoly.png",
     "yubiley-neftegaz-interview-nadein-page-68.png",
     "yubiley-neftegaz-interview-nadein-page-69.png",
     "yubiley-neftegaz-interview-nadein-page-70.png",
@@ -96,6 +98,7 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
   assert.match(page, /yubiley-neftegaz-interview-nadein-page-70\.png/);
   assert.match(page, /yubiley-neftegaz-interview-nadein-page-71\.png/);
   assert.match(page, /yubiley-neftegaz-interview-nadein-page-72\.png/);
+  assert.match(page, /Корпоративная «Монополия»/);
   assert.match(page, /MagazineReader/);
   assert.match(page, /project-wide/);
   assert.match(page, /www\.kommersant\.ru\/doc\/7325577/);
@@ -125,7 +128,9 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
   assert.match(styles, /grid-template-columns: repeat\(7, minmax\(0, 1fr\)\)/);
   assert.match(styles, /text-wrap: pretty/);
   assert.match(page, /MagazineReader/);
-  assert.match(styles, /magazine-reader-page-turn/);
+  assert.match(styles, /\.magazine-page-strip/);
+  assert.match(styles, /\.magazine-page-trigger/);
+  assert.doesNotMatch(styles, /magazine-reader-page-turn/);
   assert.match(page, /thumbnailPath/);
   assert.doesNotMatch(styles, /filter:\s*grayscale/i);
   assert.match(lightbox, /thumbnailSrc/);

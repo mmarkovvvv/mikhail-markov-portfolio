@@ -17,13 +17,12 @@ type MagazineReaderProps = {
 };
 
 export default function MagazineReader({ pages, projectNumber, label }: MagazineReaderProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [pageIndex, setPageIndex] = useState(0);
+  const [openPageIndex, setOpenPageIndex] = useState<number | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const currentPage = pages[pageIndex];
+  const currentPage = openPageIndex === null ? null : pages[openPageIndex];
 
   useEffect(() => {
-    if (!isOpen) {
+    if (currentPage === null) {
       return undefined;
     }
 
@@ -33,15 +32,7 @@ export default function MagazineReader({ pages, projectNumber, label }: Magazine
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setIsOpen(false);
-      }
-
-      if (event.key === "ArrowLeft") {
-        setPageIndex((current) => Math.max(0, current - 1));
-      }
-
-      if (event.key === "ArrowRight") {
-        setPageIndex((current) => Math.min(pages.length - 1, current + 1));
+        setOpenPageIndex(null);
       }
     };
 
@@ -51,67 +42,65 @@ export default function MagazineReader({ pages, projectNumber, label }: Magazine
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isOpen, pages.length]);
+  }, [currentPage]);
 
-  if (!currentPage) {
+  if (!pages.length) {
     return null;
   }
 
-  const openReader = () => {
-    setPageIndex(0);
-    setIsOpen(true);
-  };
-
   const closeReader = () => {
-    setIsOpen(false);
+    setOpenPageIndex(null);
   };
 
   return (
     <>
       <div className="magazine-reader">
-        <button className="magazine-preview-trigger" type="button" onClick={openReader} aria-label="Открыть журнал и листать страницы">
-          <span className="magazine-preview-paper">
-            <Image
-              src={pages[0].thumbnailSrc ?? pages[0].src}
-              alt={pages[0].alt}
-              fill
-              unoptimized
-              sizes="(max-width: 720px) 78vw, 360px"
-              className="portfolio-image"
-            />
-            <span className="project-number">{projectNumber} / 1</span>
-          </span>
-          <span className="magazine-preview-caption">
-            <span>Открыть журнал</span>
-            <span>{pages.length} страниц ↗</span>
-          </span>
-        </button>
+        <div className="magazine-page-strip" aria-label={`${label}: страницы`}>
+          {pages.map((page, index) => (
+            <button className="magazine-page-trigger" type="button" onClick={() => setOpenPageIndex(index)} aria-label={`Открыть страницу ${index + 1}`} key={page.src}>
+              <span className="magazine-page-paper" style={{ aspectRatio: page.ratio }}>
+                <Image
+                  src={page.thumbnailSrc ?? page.src}
+                  alt={page.alt}
+                  fill
+                  unoptimized
+                  sizes="(max-width: 620px) 37vw, (max-width: 1100px) 17vw, 180px"
+                  className="portfolio-image"
+                />
+                <span className="project-number">{projectNumber} / {index + 1}</span>
+                <span className="magazine-page-open-hint" aria-hidden="true">Открыть ↗</span>
+              </span>
+            </button>
+          ))}
+        </div>
+        <div className="magazine-strip-caption">
+          <span>{label}</span>
+          <span>Нажмите на страницу, чтобы прочитать</span>
+        </div>
       </div>
 
-      {isOpen ? (
+      {currentPage ? (
         <div className="magazine-modal" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && closeReader()}>
-          <div className="magazine-reader-dialog" role="dialog" aria-modal="true" aria-label="Интервью в журнале">
+          <div className="magazine-reader-dialog" role="dialog" aria-modal="true" aria-label={`${label}, страница ${(openPageIndex ?? 0) + 1}`}>
             <div className="magazine-reader-topline">
-              <span>{label}</span>
-              <button className="magazine-reader-close" type="button" onClick={closeReader} ref={closeButtonRef} aria-label="Закрыть журнал">×</button>
+              <span>{projectNumber} / {(openPageIndex ?? 0) + 1} · {label}</span>
+              <button className="magazine-reader-close" type="button" onClick={closeReader} ref={closeButtonRef} aria-label="Закрыть страницу">×</button>
             </div>
             <div className="magazine-reader-stage">
-              <div className="magazine-reader-page-frame" key={currentPage.src} style={{ aspectRatio: currentPage.ratio }}>
+              <div className="magazine-reader-page-frame" style={{ aspectRatio: currentPage.ratio }}>
                 <Image
                   src={currentPage.src}
                   alt={currentPage.alt}
                   fill
                   unoptimized
-                  sizes="(max-width: 720px) 86vw, 520px"
+                  sizes="(max-width: 720px) 94vw, 760px"
                   className="portfolio-image"
                 />
-                <span className="project-number">{projectNumber} / {pageIndex + 1}</span>
               </div>
             </div>
             <div className="magazine-reader-controls">
-              <button className="magazine-reader-nav-button" type="button" onClick={() => setPageIndex((current) => Math.max(0, current - 1))} disabled={pageIndex === 0} aria-label="Предыдущая страница">←</button>
-              <span aria-live="polite">{pageIndex + 1} / {pages.length}</span>
-              <button className="magazine-reader-nav-button" type="button" onClick={() => setPageIndex((current) => Math.min(pages.length - 1, current + 1))} disabled={pageIndex === pages.length - 1} aria-label="Следующая страница">→</button>
+              <span>Страница {(openPageIndex ?? 0) + 1} из {pages.length}</span>
+              <span>Esc — закрыть</span>
             </div>
           </div>
         </div>
