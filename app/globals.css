@@ -904,11 +904,11 @@ a:focus-visible {
     }
   }
 
-  .project:not(.project-text) {
+  .project:not(.project-text):not(.project-wide) {
     transition: transform 220ms ease;
   }
 
-  .project:not(.project-text):hover {
+  .project:not(.project-text):not(.project-wide):hover {
     transform: translateY(-4px);
   }
 }
