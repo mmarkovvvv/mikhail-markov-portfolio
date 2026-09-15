@@ -36,6 +36,7 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /Работы/);
   assert.match(html, /С нуля собрал и возглавил редакцию из 9 человек/);
   assert.match(html, /Работа с отзывами: разбор ошибок, коммуникация с клиентами и ToV/);
+  assert.match(html, /Каталог «ПромМаш Тест»/);
   assert.match(html, /mailto:mmarkovvvv@gmail\.com/);
   assert.match(html, /class="contact-icon-link"/);
   assert.match(html, /aria-label="Medium"/);
@@ -69,6 +70,7 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
     "video-production-factory-shoot.png",
     "video-production-studio-setup.png",
     "sercons-corporate-monopoly.png",
+    "prommash-test-corporate-catalog.png",
     "yubiley-neftegaz-interview-nadein-page-68.png",
     "yubiley-neftegaz-interview-nadein-page-69.png",
     "yubiley-neftegaz-interview-nadein-page-70.png",
