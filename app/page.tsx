@@ -200,7 +200,7 @@ const projectGroups: ProjectGroup[] = [
       {
         number: "01",
         category: "Личный бренд",
-        title: "Бренд CEO",
+        title: "Бренд CEO (внутр. коммуникации)",
         text: "Собрал стратегию личного бренда Георгия Гаркуши: позиционирование, архетипы, ToV, контентные форматы и план продвижения.",
         image: "/media/georgy-garkusha-personal-brand-strategy.png",
         alt: "Презентация стратегии личного бренда Георгия Гаркуши",
