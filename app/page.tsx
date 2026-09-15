@@ -28,6 +28,7 @@ type Project = {
 
 type ProjectGroup = {
   number: string;
+  displayNumber?: string;
   title: string;
   projects: Project[];
 };
@@ -162,7 +163,38 @@ const projectGroups: ProjectGroup[] = [
     ],
   },
   {
+    number: "08",
+    displayNumber: "03",
+    title: "Редакционное сопровождение мероприятий",
+    projects: [
+      {
+        number: "01",
+        category: "Редакционное сопровождение",
+        title: "ПромМаш Тест на выставке",
+        text: "Сопровождал выставки и форумы — ПМЭФ, «Нефтегаз», ВНОТ, ADIPEC и другие: разрабатывал слоганы и теглайны, тексты стенда и переговорной зоны, навигацию и ключевые сообщения. Проводил редакционный контроль реализации застройки: проверял формулировки, цифры, названия и размещение материалов на носителях.",
+        gallery: [
+          {
+            src: "/media/event-editorial-prommash-test-meeting-zone.png",
+            alt: "Зона переговоров «ПромМаш Тест» на выставке",
+            ratio: 1085 / 1449,
+          },
+          {
+            src: "/media/event-editorial-prommash-test-exhibition-booth.png",
+            alt: "Выставочный стенд «ПромМаш Тест»",
+            ratio: 1086 / 1448,
+          },
+          {
+            src: "/media/event-editorial-exhibition-build-out.png",
+            alt: "Монтаж выставочного стенда",
+            ratio: 1445 / 1089,
+          },
+        ],
+      },
+    ],
+  },
+  {
     number: "03",
+    displayNumber: "04",
     title: "Личные бренды",
     projects: [
       {
@@ -221,6 +253,7 @@ const projectGroups: ProjectGroup[] = [
   },
   {
     number: "04",
+    displayNumber: "05",
     title: "Стратегия и сценарии",
     projects: [
       {
@@ -246,6 +279,7 @@ const projectGroups: ProjectGroup[] = [
   },
   {
     number: "05",
+    displayNumber: "06",
     title: "Видео и production",
     projects: [
       {
@@ -285,6 +319,7 @@ const projectGroups: ProjectGroup[] = [
   },
   {
     number: "06",
+    displayNumber: "07",
     title: "B2C Travel: American Market",
     projects: [
       {
@@ -298,6 +333,7 @@ const projectGroups: ProjectGroup[] = [
   },
   {
     number: "07",
+    displayNumber: "08",
     title: "Статьи на английском языке",
     projects: [
       {
@@ -344,35 +380,6 @@ const projectGroups: ProjectGroup[] = [
         alt: "Статья To Boldly Go to San Diego Comic-Con International",
         imageKind: "article-cover",
         ratio: 1002 / 1380,
-      },
-    ],
-  },
-  {
-    number: "08",
-    title: "Редакционное сопровождение мероприятий",
-    projects: [
-      {
-        number: "01",
-        category: "Редакционное сопровождение",
-        title: "ПромМаш Тест на выставке",
-        text: "Сопровождал выставки и форумы — ПМЭФ, «Нефтегаз», ВНОТ, ADIPEC и другие: разрабатывал слоганы и теглайны, тексты стенда и переговорной зоны, навигацию и ключевые сообщения. Проводил редакционный контроль реализации застройки: проверял формулировки, цифры, названия и размещение материалов на носителях.",
-        gallery: [
-          {
-            src: "/media/event-editorial-prommash-test-meeting-zone.png",
-            alt: "Зона переговоров «ПромМаш Тест» на выставке",
-            ratio: 1085 / 1449,
-          },
-          {
-            src: "/media/event-editorial-prommash-test-exhibition-booth.png",
-            alt: "Выставочный стенд «ПромМаш Тест»",
-            ratio: 1086 / 1448,
-          },
-          {
-            src: "/media/event-editorial-exhibition-build-out.png",
-            alt: "Монтаж выставочного стенда",
-            ratio: 1445 / 1089,
-          },
-        ],
       },
     ],
   },
@@ -429,7 +436,7 @@ export default function Home() {
         <nav className="project-index" aria-label="Категории работ">
           {projectGroups.map((group) => (
             <a href={`#group-${group.number}`} key={group.number}>
-              <span>{group.number}</span>
+              <span>{group.displayNumber ?? group.number}</span>
               <strong>{keepRussianWordsTogether(group.title)}</strong>
               <span aria-hidden="true">↘</span>
             </a>
@@ -439,7 +446,7 @@ export default function Home() {
           {projectGroups.map((group) => (
             <section className={`project-group ${group.number === "07" ? "project-group-english" : ""}`} data-group={group.number} key={group.number} aria-labelledby={`group-${group.number}`}>
               <div className="group-heading">
-                <span>{group.number}</span>
+                <span>{group.displayNumber ?? group.number}</span>
                 <h3 id={`group-${group.number}`}>{keepRussianWordsTogether(group.title)}</h3>
               </div>
               <div className="project-list">

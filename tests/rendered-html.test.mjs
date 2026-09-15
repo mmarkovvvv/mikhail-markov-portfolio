@@ -98,9 +98,10 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
   assert.match(page, /Видео и production/);
   assert.match(page, /GEM EXPO \+ FEST \+ FORUM/);
   const sitesPosition = page.indexOf('number: "02",\n    title: "Сайты и digital"');
-  const personalBrandsPosition = page.indexOf('number: "03",\n    title: "Личные бренды"');
-  const strategyPosition = page.indexOf('number: "04",\n    title: "Стратегия и сценарии"');
-  assert.ok(sitesPosition >= 0 && personalBrandsPosition > sitesPosition && strategyPosition > personalBrandsPosition);
+  const eventPosition = page.indexOf('number: "08",\n    displayNumber: "03",\n    title: "Редакционное сопровождение мероприятий"');
+  const personalBrandsPosition = page.indexOf('number: "03",\n    displayNumber: "04",\n    title: "Личные бренды"');
+  const strategyPosition = page.indexOf('number: "04",\n    displayNumber: "05",\n    title: "Стратегия и сценарии"');
+  assert.ok(sitesPosition >= 0 && eventPosition > sitesPosition && personalBrandsPosition > eventPosition && strategyPosition > personalBrandsPosition);
   assert.match(page, /Бренд CEO/);
   assert.match(page, /Бренд CCO/);
   assert.match(page, /«Работай на нефть, работай!»/);
