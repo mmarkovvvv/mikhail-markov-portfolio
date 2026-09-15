@@ -381,12 +381,12 @@ a:focus-visible {
   grid-column: 1 / -1;
 }
 
-.project-list > .project-has-visual:not(.project-featured):not(.project-wide):not(.project-video) {
+.project-group:not([data-group="02"]) .project-list > .project-has-visual:not(.project-featured):not(.project-wide):not(.project-video) {
   display: flex;
   flex-direction: column;
 }
 
-.project-list > .project-has-visual:not(.project-featured):not(.project-wide):not(.project-video) .project-visual {
+.project-group:not([data-group="02"]) .project-list > .project-has-visual:not(.project-featured):not(.project-wide):not(.project-video) .project-visual {
   aspect-ratio: 16 / 9 !important;
   flex: 0 0 auto;
 }
@@ -474,6 +474,10 @@ a:focus-visible {
 
 .project-visual-article-cover .portfolio-image {
   object-fit: cover;
+}
+
+.project-group[data-group="02"] .project-visual .portfolio-image {
+  object-fit: contain !important;
 }
 
 .project-gallery {
