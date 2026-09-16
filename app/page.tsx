@@ -210,10 +210,40 @@ const projectGroups: ProjectGroup[] = [
         number: "02",
         category: "Личный бренд",
         title: "Бренд CCO",
-        text: "Разработал стратегию бренда Веры Горбачевой: сегментировал аудиторию, собрал ToV и moodboard с примерами коммуникации.",
-        image: "/media/gorbacheva-personal-brand-tov-moodboard.png",
-        alt: "Moodboard и примеры tone of voice для личного бренда",
-        ratio: 3234 / 1748,
+        text: "Раскрыл позиционирование Веры Горбачёвой через историю роста компании, инноваций, развития команды и международного сотрудничества.",
+        wide: true,
+        gallery: [
+          {
+            src: "/media/gorbacheva-brand-article-page-14.png",
+            alt: "Статья о Вере Горбачёвой и развитии компании, страница 14",
+            ratio: 1242 / 1764,
+          },
+          {
+            src: "/media/gorbacheva-brand-article-page-15.png",
+            alt: "Статья о Вере Горбачёвой и развитии компании, страница 15",
+            ratio: 1246 / 1760,
+          },
+          {
+            src: "/media/gorbacheva-brand-article-page-16.png",
+            alt: "Статья о Вере Горбачёвой и развитии компании, страница 16",
+            ratio: 1248 / 1760,
+          },
+          {
+            src: "/media/gorbacheva-brand-article-page-17.png",
+            alt: "Статья о Вере Горбачёвой и развитии компании, страница 17",
+            ratio: 1244 / 1760,
+          },
+          {
+            src: "/media/gorbacheva-brand-article-page-18.png",
+            alt: "Статья о Вере Горбачёвой и развитии компании, страница 18",
+            ratio: 1246 / 1756,
+          },
+          {
+            src: "/media/gorbacheva-brand-article-page-19.png",
+            alt: "Статья о Вере Горбачёвой и развитии компании, страница 19",
+            ratio: 1248 / 1764,
+          },
+        ],
       },
       {
         number: "03",
