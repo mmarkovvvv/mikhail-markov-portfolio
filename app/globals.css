@@ -381,12 +381,12 @@ a:focus-visible {
   grid-column: 1 / -1;
 }
 
-.project-group:not([data-group="02"]) .project-list > .project-has-visual:not(.project-featured):not(.project-wide):not(.project-video) {
+.project-group:not([data-group="02"]):not(.project-group-english) .project-list > .project-has-visual:not(.project-featured):not(.project-wide):not(.project-video) {
   display: flex;
   flex-direction: column;
 }
 
-.project-group:not([data-group="02"]) .project-list > .project-has-visual:not(.project-featured):not(.project-wide):not(.project-video) .project-visual {
+.project-group:not([data-group="02"]):not(.project-group-english) .project-list > .project-has-visual:not(.project-featured):not(.project-wide):not(.project-video) .project-visual {
   aspect-ratio: 16 / 9 !important;
   flex: 0 0 auto;
 }
