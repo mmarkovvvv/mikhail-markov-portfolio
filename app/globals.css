@@ -568,6 +568,7 @@ a:focus-visible {
   align-items: baseline;
   border-top: 1px solid var(--ink);
   display: flex;
+  flex-wrap: wrap;
   font-family: var(--font-mono);
   font-size: 10px;
   gap: 16px;
@@ -577,9 +578,21 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
-.magazine-strip-caption span:last-child {
+.magazine-strip-caption span:last-of-type {
   color: var(--muted);
   text-align: right;
+}
+
+.magazine-download-link {
+  color: var(--ink);
+  margin-left: auto;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.magazine-download-link:hover,
+.magazine-download-link:focus-visible {
+  color: var(--accent);
 }
 
 .magazine-modal {

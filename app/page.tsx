@@ -24,6 +24,7 @@ type Project = {
   href?: string;
   date?: string;
   readTime?: string;
+  downloadHref?: string;
 };
 
 type ProjectGroup = {
@@ -211,6 +212,7 @@ const projectGroups: ProjectGroup[] = [
         category: "Личный бренд",
         title: "Бренд CCO",
         text: "Раскрыл позиционирование Веры Горбачёвой через историю роста компании, инноваций, развития команды и международного сотрудничества.",
+        downloadHref: "https://www.rbgmedia.ru/files/rbg-261.pdf",
         wide: true,
         gallery: [
           {
@@ -488,6 +490,7 @@ export default function Home() {
                         <MagazineReader
                           label={project.category}
                           projectNumber={project.number}
+                          downloadHref={project.downloadHref}
                           pages={project.gallery.map((image) => ({ ...image, thumbnailSrc: thumbnailPath(image.src) }))}
                         />
                       ) : (

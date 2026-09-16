@@ -14,9 +14,10 @@ type MagazineReaderProps = {
   pages: MagazinePage[];
   projectNumber: string;
   label: string;
+  downloadHref?: string;
 };
 
-export default function MagazineReader({ pages, projectNumber, label }: MagazineReaderProps) {
+export default function MagazineReader({ pages, projectNumber, label, downloadHref }: MagazineReaderProps) {
   const [openPageIndex, setOpenPageIndex] = useState<number | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const currentPage = openPageIndex === null ? null : pages[openPageIndex];
@@ -76,6 +77,11 @@ export default function MagazineReader({ pages, projectNumber, label }: Magazine
         <div className="magazine-strip-caption">
           <span>{label}</span>
           <span>Нажмите на страницу, чтобы прочитать</span>
+          {downloadHref ? (
+            <a className="magazine-download-link" href={downloadHref} target="_blank" rel="noreferrer">
+              Скачать PDF ↗
+            </a>
+          ) : null}
         </div>
       </div>
 
