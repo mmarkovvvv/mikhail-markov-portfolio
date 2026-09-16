@@ -53,12 +53,13 @@ test("server-renders the portfolio homepage", async () => {
 });
 
 test("keeps the portfolio assets and shell metadata aligned", async () => {
-  const [page, styles, lightbox, layout, packageJson] = await Promise.all([
+  const [page, styles, lightbox, layout, packageJson, reader] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
     readFile(new URL("../app/LightboxImage.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../package.json", import.meta.url), "utf8"),
+    readFile(new URL("../app/MagazineReader.tsx", import.meta.url), "utf8"),
   ]);
 
   const assets = [
@@ -117,6 +118,8 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
   assert.match(page, /event-editorial-prommash-test-exhibition-booth\.png/);
   assert.match(page, /event-editorial-exhibition-build-out\.png/);
   assert.match(page, /MagazineReader/);
+  assert.match(reader, /Предыдущая страница/);
+  assert.match(reader, /Следующая страница/);
   assert.match(page, /project-wide/);
   assert.match(page, /www\.kommersant\.ru\/doc\/7325577/);
   assert.match(page, /www\.kommersant\.ru\/doc\/7694230/);
@@ -148,6 +151,9 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
   assert.match(page, /MagazineReader/);
   assert.match(styles, /\.magazine-page-strip/);
   assert.match(styles, /\.magazine-page-trigger/);
+  assert.match(styles, /\.magazine-reader-page-nav/);
+  assert.match(styles, /overflow-x: auto/);
+  assert.doesNotMatch(styles, /aspect-ratio: 2 \/ 3 !important/);
   assert.doesNotMatch(styles, /magazine-reader-page-turn/);
   assert.match(page, /thumbnailPath/);
   assert.doesNotMatch(styles, /filter:\s*grayscale/i);
