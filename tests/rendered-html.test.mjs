@@ -37,7 +37,7 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /Работа с отзывами: разбор ошибок, коммуникация с клиентами и ToV/);
   assert.match(html, /Печатные промоматериалы/);
   assert.match(html, /Редакционное сопровождение мероприятий/);
-  assert.match(html, /ПромМаш Тест на выставке/);
+  assert.match(html, /Ивент-сопровождение/);
   assert.match(html, /ПМЭФ/);
   assert.match(html, /«Нефтегаз»/);
   assert.match(html, /редакционный контроль реализации застройки/);
@@ -113,7 +113,7 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
   assert.match(page, /yubiley-neftegaz-interview-nadein-page-72\.png/);
   assert.match(page, /Корпоративная «Монополия»/);
   assert.match(page, /Редакционное сопровождение мероприятий/);
-  assert.match(page, /ПромМаш Тест на выставке/);
+  assert.match(page, /Ивент-сопровождение/);
   assert.match(page, /event-editorial-prommash-test-meeting-zone\.png/);
   assert.match(page, /event-editorial-prommash-test-exhibition-booth\.png/);
   assert.match(page, /event-editorial-exhibition-build-out\.png/);
