@@ -35,6 +35,18 @@ export default function MagazineReader({ pages, projectNumber, label, downloadHr
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setOpenPageIndex(null);
+        return;
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        setOpenPageIndex((pageIndex) => pageIndex === null ? pageIndex : Math.min(pageIndex + 1, pages.length - 1));
+        return;
+      }
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        setOpenPageIndex((pageIndex) => pageIndex === null ? pageIndex : Math.max(pageIndex - 1, 0));
       }
     };
 
@@ -44,7 +56,7 @@ export default function MagazineReader({ pages, projectNumber, label, downloadHr
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [currentPage]);
+  }, [currentPage, pages.length]);
 
   if (!pages.length) {
     return null;
@@ -88,7 +100,7 @@ export default function MagazineReader({ pages, projectNumber, label, downloadHr
 
       {currentPage ? (
         <div className="magazine-modal" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && closeReader()}>
-          <div className="magazine-reader-dialog" role="dialog" aria-modal="true" aria-label={`${label}, страница ${(openPageIndex ?? 0) + 1}`}>
+          <div className="magazine-reader-dialog" role="dialog" aria-modal="true" aria-label={`${label}, страница ${(openPageIndex ?? 0) + 1}`} aria-keyshortcuts="ArrowLeft ArrowRight Escape">
             <div className="magazine-reader-topline">
               <span>{projectNumber} / {(openPageIndex ?? 0) + 1} · {label}</span>
               <button className="magazine-reader-close" type="button" onClick={closeReader} ref={closeButtonRef} aria-label="Закрыть страницу">×</button>
@@ -107,7 +119,7 @@ export default function MagazineReader({ pages, projectNumber, label, downloadHr
             </div>
             <div className="magazine-reader-controls">
               <span>Страница {(openPageIndex ?? 0) + 1} из {pages.length}</span>
-              <span>Esc — закрыть</span>
+              <span>← → листать · Esc — закрыть</span>
             </div>
           </div>
         </div>
