@@ -429,12 +429,74 @@ a:focus-visible {
 }
 
 .project-group[data-group="03"] .project-list {
-  gap: 12px 30px;
+  gap: 36px 30px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .project-group[data-group="03"] .project-wide {
   border-top: 1px solid rgba(101, 112, 216, 0.28);
+  grid-column: 1 / -1;
   padding-top: 18px;
+}
+
+.project-group[data-group="03"] .project-brand-compact {
+  border-top: 0;
+  grid-column: auto;
+  padding-top: 0;
+}
+
+.project-group[data-group="03"] .project-copy {
+  padding-top: 16px;
+}
+
+.project-group[data-group="03"] .project-copy .project-category {
+  display: none;
+}
+
+.project-group[data-group="03"] .project-copy h4 {
+  max-width: 20ch;
+}
+
+.project-group[data-group="03"] .project-copy > p:last-child {
+  max-width: 42ch;
+}
+
+.magazine-reader-compact .magazine-page-strip {
+  align-items: center;
+  aspect-ratio: 1.95 / 1;
+  display: grid;
+  gap: 6px;
+  overflow: hidden;
+  padding: 0;
+  grid-template-columns: minmax(0, 1.45fr) repeat(5, minmax(0, 1fr));
+}
+
+.magazine-reader-compact .magazine-page-trigger {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  min-width: 0;
+}
+
+.magazine-reader-compact .magazine-page-trigger:first-child .magazine-page-paper {
+  aspect-ratio: auto !important;
+  height: 100%;
+  width: 100%;
+}
+
+.magazine-reader-compact .magazine-page-trigger:not(:first-child) .magazine-page-paper {
+  aspect-ratio: auto !important;
+  height: 68%;
+  width: 100%;
+}
+
+.magazine-reader-compact .magazine-page-paper {
+  box-shadow: 0 6px 14px rgba(23, 23, 23, 0.1);
+}
+
+.magazine-reader-compact .magazine-strip-caption {
+  gap: 10px;
+  padding-top: 9px;
 }
 
 .project-text .project-copy {
@@ -1186,8 +1248,31 @@ a:focus-visible {
   }
 
   .project-group[data-group="03"] .project-wide {
-    margin-left: -45px;
-    width: calc(100% + 45px);
+    margin-left: 0;
+    width: auto;
+  }
+
+  .project-group[data-group="03"] .magazine-page-strip {
+    aspect-ratio: auto;
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .project-group[data-group="03"] .magazine-page-trigger {
+    flex: 0 0 72px;
+    min-width: 72px;
+  }
+
+  .project-group[data-group="03"] .magazine-reader-compact .magazine-page-trigger:first-child .magazine-page-paper,
+  .project-group[data-group="03"] .magazine-reader-compact .magazine-page-trigger:not(:first-child) .magazine-page-paper {
+    aspect-ratio: 2 / 3 !important;
+    height: auto;
+    width: 100%;
+  }
+
+  .project-group[data-group="03"] .project {
+    margin-bottom: 36px;
   }
 
   .magazine-reader {

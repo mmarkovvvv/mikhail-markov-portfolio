@@ -15,9 +15,10 @@ type MagazineReaderProps = {
   projectNumber: string;
   label: string;
   downloadHref?: string;
+  compact?: boolean;
 };
 
-export default function MagazineReader({ pages, projectNumber, label, downloadHref }: MagazineReaderProps) {
+export default function MagazineReader({ pages, projectNumber, label, downloadHref, compact = false }: MagazineReaderProps) {
   const [openPageIndex, setOpenPageIndex] = useState<number | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const currentPage = openPageIndex === null ? null : pages[openPageIndex];
@@ -55,7 +56,7 @@ export default function MagazineReader({ pages, projectNumber, label, downloadHr
 
   return (
     <>
-      <div className="magazine-reader">
+      <div className={`magazine-reader ${compact ? "magazine-reader-compact" : ""}`}>
         <div className="magazine-page-strip" role="group" aria-label={`${label}: страницы`}>
           {pages.map((page, index) => (
             <button className="magazine-page-trigger" type="button" onClick={() => setOpenPageIndex(index)} aria-label={`Открыть страницу ${index + 1}`} key={page.src}>
@@ -75,8 +76,8 @@ export default function MagazineReader({ pages, projectNumber, label, downloadHr
           ))}
         </div>
         <div className="magazine-strip-caption">
-          <span>{label}</span>
-          <span>Нажмите на страницу, чтобы прочитать</span>
+          <span>{pages.length} страниц</span>
+          <span>Открыть страницы ↗</span>
           {downloadHref ? (
             <a className="magazine-download-link" href={downloadHref} target="_blank" rel="noreferrer">
               Скачать PDF ↗

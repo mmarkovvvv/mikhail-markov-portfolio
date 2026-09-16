@@ -202,7 +202,7 @@ const projectGroups: ProjectGroup[] = [
         number: "01",
         category: "Личный бренд",
         title: "Бренд CEO (внутр. коммуникации)",
-        text: "Собрал стратегию личного бренда Георгия Гаркуши: позиционирование, архетипы, ToV, контентные форматы и план продвижения.",
+        text: "Платформа личного бренда Георгия Гаркуши: позиционирование, ToV и контентные форматы.",
         image: "/media/georgy-garkusha-personal-brand-strategy.png",
         alt: "Презентация стратегии личного бренда Георгия Гаркуши",
         ratio: 3382 / 1564,
@@ -211,7 +211,7 @@ const projectGroups: ProjectGroup[] = [
         number: "02",
         category: "Личный бренд",
         title: "Бренд CCO",
-        text: "Раскрыл позиционирование Веры Горбачёвой через историю роста компании, инноваций, развития команды и международного сотрудничества.",
+        text: "Редакционный материал о роли Веры Горбачёвой в развитии компании и международного направления.",
         downloadHref: "https://www.rbgmedia.ru/files/rbg-261.pdf",
         wide: true,
         gallery: [
@@ -484,13 +484,14 @@ export default function Home() {
               </div>
               <div className="project-list">
                 {group.projects.map((project) => (
-                  <article className={`project ${project.image || project.gallery ? "project-has-visual" : ""} ${project.featured ? "project-featured" : ""} ${project.wide ? "project-wide" : ""} ${group.number === "05" ? "project-video" : ""} ${project.type === "text" ? "project-text" : ""} ${project.type === "link" ? "project-link-item" : ""}`} key={`${group.number}-${project.number}`}>
+                  <article className={`project ${project.image || project.gallery ? "project-has-visual" : ""} ${project.featured ? "project-featured" : ""} ${project.wide ? "project-wide" : ""} ${group.number === "03" && project.number === "02" ? "project-brand-compact" : ""} ${group.number === "05" ? "project-video" : ""} ${project.type === "text" ? "project-text" : ""} ${project.type === "link" ? "project-link-item" : ""}`} key={`${group.number}-${project.number}`}>
                     {project.gallery ? (
                       project.wide ? (
                         <MagazineReader
                           label={project.category}
                           projectNumber={project.number}
                           downloadHref={project.downloadHref}
+                          compact={group.number === "03" && project.number === "02"}
                           pages={project.gallery.map((image) => ({ ...image, thumbnailSrc: thumbnailPath(image.src) }))}
                         />
                       ) : (
