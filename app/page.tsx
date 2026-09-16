@@ -317,7 +317,7 @@ const projectGroups: ProjectGroup[] = [
         number: "01",
         category: "Video Production",
         title: "Сценарии, storyboard, интервью, съёмки, постпродакшн",
-        text: "Запустил видеонаправление для выставок и форумов: от сценария и раскадровки до съёмок и постпродакшна.",
+        text: "Запустил видеонаправление для выставок, форумов и съёмок промышленных производств: от сценария и раскадровки до съёмок, интервьюирования экспертов и постпродакшна.",
         links: [
           { label: "Видео 01 ↗", href: "https://www.youtube.com/watch?v=TaJ63sbGwFE&t=52s" },
           { label: "Видео 02 ↗", href: "https://www.youtube.com/watch?v=coh1qFLm2vc&t=133s" },
