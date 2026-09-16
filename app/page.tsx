@@ -250,7 +250,7 @@ const projectGroups: ProjectGroup[] = [
       {
         number: "03",
         category: "Работай на нефть, работай!",
-        title: "«Работай на нефть, работай!»",
+        title: "Экспертный бренд",
         text: "Подготовил журнальное интервью о профессиональном пути Владимира Надеина: 65 лет в нефтегазовой отрасли, инженерный опыт и взгляд на безопасность.",
         wide: true,
         gallery: [
@@ -484,7 +484,7 @@ export default function Home() {
               </div>
               <div className="project-list">
                 {group.projects.map((project) => (
-                  <article className={`project ${project.image || project.gallery ? "project-has-visual" : ""} ${project.featured ? "project-featured" : ""} ${project.wide ? "project-wide" : ""} ${group.number === "03" && project.number === "02" ? "project-brand-compact" : ""} ${group.number === "05" ? "project-video" : ""} ${project.type === "text" ? "project-text" : ""} ${project.type === "link" ? "project-link-item" : ""}`} key={`${group.number}-${project.number}`}>
+                  <article className={`project ${project.image || project.gallery ? "project-has-visual" : ""} ${project.featured ? "project-featured" : ""} ${project.wide ? "project-wide" : ""} ${group.number === "03" && project.number === "02" ? "project-brand-compact" : ""} ${group.number === "03" && project.number === "03" ? "project-expert-brand" : ""} ${group.number === "05" ? "project-video" : ""} ${project.type === "text" ? "project-text" : ""} ${project.type === "link" ? "project-link-item" : ""}`} key={`${group.number}-${project.number}`}>
                     {project.gallery ? (
                       project.wide ? (
                         <MagazineReader

@@ -105,7 +105,7 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
   assert.ok(sitesPosition >= 0 && eventPosition > sitesPosition && personalBrandsPosition > eventPosition && strategyPosition > personalBrandsPosition);
   assert.match(page, /Бренд CEO/);
   assert.match(page, /Бренд CCO/);
-  assert.match(page, /«Работай на нефть, работай!»/);
+  assert.match(page, /Экспертный бренд/);
   assert.match(page, /yubiley-neftegaz-interview-nadein-page-68\.png/);
   assert.match(page, /yubiley-neftegaz-interview-nadein-page-69\.png/);
   assert.match(page, /yubiley-neftegaz-interview-nadein-page-70\.png/);

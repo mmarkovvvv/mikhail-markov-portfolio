@@ -424,6 +424,11 @@ a:focus-visible {
   margin-right: auto;
 }
 
+.project-group[data-group="03"] .project-expert-brand .project-copy {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .project-group[data-group="03"] .group-heading {
   margin-bottom: 18px;
 }
