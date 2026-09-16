@@ -35,7 +35,7 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /Работы/);
   assert.match(html, /С нуля собрал и возглавил редакцию из 9 человек/);
   assert.match(html, /Работа с отзывами: разбор ошибок, коммуникация с клиентами и ToV/);
-  assert.match(html, /Каталог «ПромМаш Тест»/);
+  assert.match(html, /Печатные промоматериалы/);
   assert.match(html, /Редакционное сопровождение мероприятий/);
   assert.match(html, /ПромМаш Тест на выставке/);
   assert.match(html, /ПМЭФ/);
