@@ -22,9 +22,14 @@ export default function MagazineReader({ pages, projectNumber, label, downloadHr
   const [openPageIndex, setOpenPageIndex] = useState<number | null>(null);
   const [loadedPageSrc, setLoadedPageSrc] = useState<string | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const openPageIndexRef = useRef<number | null>(null);
   const readerWasOpenRef = useRef(false);
   const isReaderOpen = openPageIndex !== null;
   const currentPage = openPageIndex === null ? null : pages[openPageIndex] ?? null;
+
+  useEffect(() => {
+    openPageIndexRef.current = openPageIndex;
+  }, [openPageIndex]);
 
   useEffect(() => {
     if (!isReaderOpen) {
@@ -48,15 +53,23 @@ export default function MagazineReader({ pages, projectNumber, label, downloadHr
 
       if (event.key === "ArrowRight") {
         event.preventDefault();
-        setLoadedPageSrc(null);
-        setOpenPageIndex((pageIndex) => pageIndex === null ? pageIndex : Math.min(pageIndex + 1, pages.length - 1));
+        const pageIndex = openPageIndexRef.current;
+        const nextPageIndex = pageIndex === null ? pageIndex : Math.min(pageIndex + 1, pages.length - 1);
+        if (nextPageIndex !== pageIndex) {
+          setLoadedPageSrc(null);
+          setOpenPageIndex(nextPageIndex);
+        }
         return;
       }
 
       if (event.key === "ArrowLeft") {
         event.preventDefault();
-        setLoadedPageSrc(null);
-        setOpenPageIndex((pageIndex) => pageIndex === null ? pageIndex : Math.max(pageIndex - 1, 0));
+        const pageIndex = openPageIndexRef.current;
+        const nextPageIndex = pageIndex === null ? pageIndex : Math.max(pageIndex - 1, 0);
+        if (nextPageIndex !== pageIndex) {
+          setLoadedPageSrc(null);
+          setOpenPageIndex(nextPageIndex);
+        }
       }
     };
 
@@ -77,13 +90,27 @@ export default function MagazineReader({ pages, projectNumber, label, downloadHr
   };
 
   const openPage = (index: number) => {
+    if (openPageIndexRef.current === index) {
+      return;
+    }
+
     setLoadedPageSrc(null);
     setOpenPageIndex(index);
   };
 
   const changePage = (delta: number) => {
+    const pageIndex = openPageIndexRef.current;
+    if (pageIndex === null) {
+      return;
+    }
+
+    const nextPageIndex = Math.max(0, Math.min(pageIndex + delta, pages.length - 1));
+    if (nextPageIndex === pageIndex) {
+      return;
+    }
+
     setLoadedPageSrc(null);
-    setOpenPageIndex((pageIndex) => pageIndex === null ? pageIndex : Math.max(0, Math.min(pageIndex + delta, pages.length - 1)));
+    setOpenPageIndex(nextPageIndex);
   };
 
   return (
