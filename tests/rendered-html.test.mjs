@@ -30,7 +30,7 @@ test("server-renders the portfolio homepage", async () => {
 
   const html = (await response.text()).replace(/\u00a0/g, " ");
   assert.match(html, /<title>Михаил Марков — Content &amp; Communications<\/title>/i);
-  assert.match(html, /Редактор и руководитель контента и коммуникаций\. 7\+ лет работаю с текстами и контентом/);
+  assert.match(html, /Редактор контента и коммуникаций\. 7\+ лет работаю с текстами и контентом/);
   assert.match(html, /от статей и digital-проектов до стратегий и видеопродакшна/);
   assert.match(html, /Работы/);
   assert.match(html, /С нуля собрал и возглавил редакцию из 9 человек/);

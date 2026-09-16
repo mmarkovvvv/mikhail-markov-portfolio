@@ -435,7 +435,7 @@ export default function Home() {
           <p className="kicker">Редактор</p>
           <h1>Михаил<br />Марков</h1>
           <p className="intro-text">
-            {keepRussianWordsTogether("Редактор и руководитель контента и коммуникаций. 7+ лет работаю с текстами и контентом: от статей и digital-проектов до стратегий и видеопродакшна.")}
+            {keepRussianWordsTogether("Редактор контента и коммуникаций. 7+ лет работаю с текстами и контентом: от статей и digital-проектов до стратегий и видеопродакшна.")}
           </p>
           <div className="intro-links">
             <a href="#projects">Работы <span aria-hidden="true">↓</span></a>
