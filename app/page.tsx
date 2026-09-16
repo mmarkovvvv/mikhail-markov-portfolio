@@ -259,12 +259,11 @@ const projectGroups: ProjectGroup[] = [
       {
         number: "01",
         category: "Content Strategy",
-        title: "Контент-стратегия Hostman по системе SOSTAC",
-        text: "Разработал и запустил контент-стратегию для Hostman по системе SOSTAC: определил аудитории и цели, собрал контентные направления, каналы и систему оценки результата.",
-        image: "/media/hostman-logo.svg",
-        alt: "Логотип Hostman",
-        imageKind: "logo",
-        ratio: 151 / 32,
+        title: "Контент-стратегия международного IT-стартапа по системе SOSTAC",
+        text: "Разработал и запустил контент-стратегию для международного IT-стартапа по системе SOSTAC: определил аудитории и цели, собрал контентные направления, каналы и систему оценки результата.",
+        image: "/media/sostac-content-strategy-model.png",
+        alt: "Модель SOSTAC для контент-стратегии международного IT-стартапа",
+        ratio: 16 / 9,
       },
       {
         number: "02",
