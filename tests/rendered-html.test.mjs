@@ -123,6 +123,10 @@ test("keeps the portfolio assets and shell metadata aligned", async () => {
   assert.match(page, /project-wide/);
   assert.match(page, /www\.kommersant\.ru\/doc\/7325577/);
   assert.match(page, /www\.kommersant\.ru\/doc\/7694230/);
+  assert.match(page, /26\.02\.2026/);
+  assert.match(page, /15\.07\.2026/);
+  assert.match(page, /4 min read/);
+  assert.match(page, /5 min read/);
   assert.match(page, /docs\.google\.com\/document\/d\/1XhQmbcGTu61mQ-cOjkZ1KZ9OnDGPEI8RVSBk2UFirlw/);
   assert.match(page, /Контакты/);
   assert.match(page, /www\.kommersant\.ru\/doc\/7325577/);
