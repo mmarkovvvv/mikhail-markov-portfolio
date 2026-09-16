@@ -133,7 +133,7 @@ const projectGroups: ProjectGroup[] = [
         category: "Корпоративный каталог",
         title: "Каталог «ПромМаш Тест»",
         text: "Разработал каталог испытательного центра «ПромМаш Тест»: показал экспертизу, лаборатории и оборудование в понятной печатной подаче.",
-        image: "/media/prommash-test-corporate-catalog-wide.png",
+        image: "/media/prommash-test-corporate-catalog-wide-v2.png",
         alt: "Мокап корпоративного каталога испытательного центра «ПромМаш Тест»",
         ratio: 16 / 9,
       },
