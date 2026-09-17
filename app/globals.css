@@ -1360,7 +1360,8 @@ a:focus-visible {
   }
 
   .magazine-reader-page-frame {
-    height: min(100%, 720px);
+    height: auto;
+    width: 100%;
   }
 
   .video-gallery {
